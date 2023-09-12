@@ -1,11 +1,11 @@
-package com.br.lucasengcomp.cadastroportifolio.entity.enums;
+package com.br.lucasengcomp.cadastroportifolio.entities.enums;
 
 public enum Status {
 
-    ANALISE_REALIZADA(1, "Análise realizada"),
-    ANALISE_COMPROVADA(2, "Análise comprovada"),
+    ANALISE_REALIZADA(1, "Anï¿½lise realizada"),
+    ANALISE_COMPROVADA(2, "Anï¿½lise comprovada"),
     CANCELADO(3, "Cancelado"),
-    EM_ANALISE(4, "Em análise"),
+    EM_ANALISE(4, "Em anï¿½lise"),
     EM_ANDAMENTO(5, "Em andamento"),
     ENCERRADO(6, "Encerrado"),
     INICIADO(7, "Iniciado"),

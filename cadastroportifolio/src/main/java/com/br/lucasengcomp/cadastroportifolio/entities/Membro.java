@@ -1,4 +1,4 @@
-package com.br.lucasengcomp.cadastroportifolio.entity;
+package com.br.lucasengcomp.cadastroportifolio.entities;
 
 
 import lombok.*;
@@ -20,9 +20,11 @@ public class Membro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idprojeto")
+    @EqualsAndHashCode.Include
     private Long idProjeto;
 
     @Column(name = "idpessoa", nullable = false)
+    @EqualsAndHashCode.Include
     private Long idPessoa;
 
     @ManyToOne

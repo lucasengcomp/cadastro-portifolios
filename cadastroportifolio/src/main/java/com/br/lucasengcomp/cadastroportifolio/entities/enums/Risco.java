@@ -1,4 +1,4 @@
-package com.br.lucasengcomp.cadastroportifolio.entity.enums;
+package com.br.lucasengcomp.cadastroportifolio.entities.enums;
 
 public enum Risco {
 
