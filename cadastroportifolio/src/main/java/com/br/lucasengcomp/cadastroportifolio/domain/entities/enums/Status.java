@@ -1,5 +1,10 @@
 package com.br.lucasengcomp.cadastroportifolio.domain.entities.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Status {
 
     ANALISE_REALIZADA(1, "Análise realizada"),
@@ -13,9 +18,4 @@ public enum Status {
 
     private final int posicao;
     private final String descricao;
-
-    Status(int posicao, String descricao) {
-        this.posicao = posicao;
-        this.descricao = descricao;
-    }
 }

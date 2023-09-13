@@ -1,7 +1,7 @@
 package com.br.lucasengcomp.cadastroportifolio.core.exceptions.controllers;
 
 
-import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ConstraintViolationException;
+import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ConstraintViolationExceptionDatabase;
 import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +26,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(status).body(error);
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<StandardError> violationException(ConstraintViolationException e, HttpServletRequest request) {
+    @ExceptionHandler(ConstraintViolationExceptionDatabase.class)
+    public ResponseEntity<StandardError> violationException(ConstraintViolationExceptionDatabase e, HttpServletRequest request) {
         StandardError error = new StandardError();
         HttpStatus status = mensagemErroHttp(request, error, HttpStatus.INTERNAL_SERVER_ERROR,
                 EXCECAO_DE_BANCO_DE_DADOS_VIOLATION, e.getMessage());

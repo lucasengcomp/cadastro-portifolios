@@ -2,7 +2,10 @@ package com.br.lucasengcomp.cadastroportifolio.domain.entities;
 
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Risco;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,18 +13,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 
+@Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Projeto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     @EqualsAndHashCode.Include
     private Long id;
 
@@ -49,7 +50,8 @@ public class Projeto implements Serializable {
     private Risco risco;
 
     @ManyToOne
-    @JoinColumn(name = "idgerente", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "idgerente",
+            referencedColumnName = "id",
+            nullable = false)
     private Pessoa gerente;
-
 }

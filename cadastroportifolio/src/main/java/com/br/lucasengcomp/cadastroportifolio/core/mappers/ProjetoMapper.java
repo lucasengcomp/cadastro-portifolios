@@ -12,5 +12,6 @@ public interface ProjetoMapper {
     InserirProjetoDTO toInserir(Projeto dto);
 
     Projeto toEntidade(InserirProjetoDTO dto);
-    EntidadeProjetoDTO entidadeToDTO(Projeto entidade);
+
+    EntidadeProjetoDTO toEntidadeDTO(Projeto entidade);
 }

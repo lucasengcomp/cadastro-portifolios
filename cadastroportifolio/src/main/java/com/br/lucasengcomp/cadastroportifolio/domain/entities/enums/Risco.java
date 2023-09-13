@@ -1,5 +1,11 @@
 package com.br.lucasengcomp.cadastroportifolio.domain.entities.enums;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Risco {
 
     ALTO(1, "Alto"),
@@ -9,8 +15,4 @@ public enum Risco {
     private final int posicao;
     private final String descricao;
 
-    Risco(int posicao, String descricao) {
-        this.posicao = posicao;
-        this.descricao = descricao;
-    }
 }

@@ -4,18 +4,16 @@ import com.br.lucasengcomp.cadastroportifolio.domain.entities.Pessoa;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Risco;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Builder
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class EntidadeProjetoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
