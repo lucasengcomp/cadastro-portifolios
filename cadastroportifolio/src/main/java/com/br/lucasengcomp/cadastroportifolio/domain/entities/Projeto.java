@@ -1,7 +1,7 @@
-package com.br.lucasengcomp.cadastroportifolio.entities;
+package com.br.lucasengcomp.cadastroportifolio.domain.entities;
 
-import com.br.lucasengcomp.cadastroportifolio.entities.enums.Risco;
-import com.br.lucasengcomp.cadastroportifolio.entities.enums.Status;
+import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Risco;
+import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,4 +1,4 @@
-package com.br.lucasengcomp.cadastroportifolio.entities;
+package com.br.lucasengcomp.cadastroportifolio.domain.entities;
 
 
 import lombok.*;

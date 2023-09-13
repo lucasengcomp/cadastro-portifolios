@@ -1,9 +1,9 @@
-package com.br.lucasengcomp.cadastroportifolio.entities.enums;
+package com.br.lucasengcomp.cadastroportifolio.domain.entities.enums;
 
 public enum Risco {
 
     ALTO(1, "Alto"),
-    MEDIO(2, "Medio"),
+    MEDIO(2, "Médio"),
     BAIXO(3, "Baixo");
 
     private final int posicao;
