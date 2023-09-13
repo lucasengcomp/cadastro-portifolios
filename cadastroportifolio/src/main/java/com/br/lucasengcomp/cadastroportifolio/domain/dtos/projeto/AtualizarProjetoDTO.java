@@ -1,7 +1,6 @@
 package com.br.lucasengcomp.cadastroportifolio.domain.dtos.projeto;
 
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.Pessoa;
-import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Risco;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,8 +30,6 @@ public class AtualizarProjetoDTO implements Serializable {
     private BigDecimal orcamento;
 
     private Status status;
-
-    private Risco risco;
 
     private Pessoa gerente;
 }

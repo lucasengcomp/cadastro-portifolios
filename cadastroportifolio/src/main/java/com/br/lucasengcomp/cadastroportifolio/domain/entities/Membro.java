@@ -15,20 +15,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Membro implements Serializable {
-   private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "idprojeto",
             referencedColumnName = "id",
-            insertable = false,
             updatable = false)
     private Projeto projeto;
 
     @ManyToOne
     @JoinColumn(name = "idpessoa",
             referencedColumnName = "id",
-            insertable = false,
             updatable = false)
     private Pessoa pessoa;
 }
