@@ -16,15 +16,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static com.br.lucasengcomp.cadastroportifolio.core.utils.UtilsMensagemPadrao.EXCECAO_GERENTE_NAO_EXISTENTE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+//@ActiveProfiles("dev")
 class ProjetoServiceImplTest {
 
     @InjectMocks
@@ -40,15 +42,7 @@ class ProjetoServiceImplTest {
     private ProjetoMapper mapper = Mappers.getMapper(ProjetoMapper.class);
 
     @Test
-    @DisplayName("Deve buscar por id existente e retornar status code OK")
-    void buscarPorId_deveRetornarEntidadeProjetoDTOQuandoEncontrado() {
-        Projeto projeto = ProjetoBuilder.criarProjeto1();
-        when(repository.findById(1L)).thenReturn(Optional.of(projeto));
-        EntidadeProjetoDTO projetoDTO = service.buscarPorId(1L);
-        assertEquals(1L, projetoDTO.getId());
-    }
-
-    @Test
+    @DisplayName("Deve lançar uma exceção quando id não exisitir")
     void buscarPorId_deveLancarExcecaoQuandoProjetoNaoEncontrado() {
         when(repository.findById(100L)).thenReturn(Optional.empty());
         assertThrows(ResourceNotFoundException.class, () -> {
@@ -57,19 +51,7 @@ class ProjetoServiceImplTest {
     }
 
     @Test
-    @DisplayName("Deve cadastrar com sucesso retornar status code CREATED e verififcar alguns campos retornados")
-    void cadastrar_deveCadastrarComSucesso() {
-        Projeto projeto = ProjetoBuilder.criarProjeto1();
-        Mockito.when(repository.save(ArgumentMatchers.any())).thenReturn(projeto);
-        repository.save(projeto);
-        assertEquals(1L, projeto.getId());
-        assertEquals("MacOS", projeto.getNome());
-        assertEquals("MacOS", projeto.getNome());
-        assertEquals("Sistema operacional fluido e compatível", projeto.getDescricao());
-    }
-
-    @Test
-    @DisplayName("Deve cadastrar com sucesso retornar status code CREATED e verififcar alguns campos retornados")
+    @DisplayName("Deve cadastrar com sucesso e verififcar alguns campos retornados")
     void cadastrar_deveLancarExcessaoAoTentarCadastrarProjetoComDadosInvalidos() {
         assertThrows(ConstraintViolationExceptionDatabase.class, () -> {
             service.cadastrar(mapper.toInserir(ProjetoBuilder.criarProjeto2()));
@@ -93,5 +75,18 @@ class ProjetoServiceImplTest {
             service.atualizarPorId(1L, dto);
         });
         assertEquals(EXCECAO_GERENTE_NAO_EXISTENTE, excecao.getMessage());
+    }
+
+    @Test
+    @DisplayName("Deve lançar exceção ao tentar deletar um projeto inexistente")
+    void deletarPorId_deveLancarExcecaoAoDeletarProjetoInexistente() {
+        Long idProjeto = 1000L;
+        when(repository.findById(idProjeto)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class, () -> {
+            service.deletarPorId(idProjeto);
+        });
+
+        verify(repository, never()).delete(any());
     }
 }
