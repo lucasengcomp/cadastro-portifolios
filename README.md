@@ -8,7 +8,24 @@
 
 1. CRUD de Projetos com algumas especificidades requeridas
 2. Alguns testes unitários com JUNIT5
-4. Swagger API REST
+3. Swagger API REST
+
+---
+
+## O que foi usado de libs
+
+* `Spring`
+* `JPA`
+* `Validation`
+* `Devtools`
+* `h2database`
+* `Postgres`
+* `Projectlombok`
+* `Junit5`
+* `Flywaydb`
+* `Mapstruct`
+* `Jacoco`
+* `Swagger`
 
 ---
 
