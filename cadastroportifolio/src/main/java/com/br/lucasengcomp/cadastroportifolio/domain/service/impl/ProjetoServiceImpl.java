@@ -33,9 +33,7 @@ public class ProjetoServiceImpl implements ProjetoServiceIT {
     @Override
     @Transactional(readOnly = true)
     public EntidadeProjetoDTO buscarPorId(Long id) {
-        Projeto projetoEncontrado = buscaProjetoPorId(id);
-
-        return mapper.toEntidadeDTO(projetoEncontrado);
+        return mapper.toEntidadeDTO(buscaProjetoPorId(id));
     }
 
     @Override
@@ -81,7 +79,6 @@ public class ProjetoServiceImpl implements ProjetoServiceIT {
     private Projeto buscaProjetoPorId(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(ID_NAO_ENCONTRADO + id));
     }
-
 
     private boolean isGerenteCadastrado(Long idGerente) {
         return pessoaRepository.findById(idGerente).isPresent();

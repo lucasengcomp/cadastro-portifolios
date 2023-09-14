@@ -21,7 +21,7 @@ public class PessoaBuilder {
 
     public static Pessoa inserirPessoa2() {
         return new Pessoa(
-                2L,
+                null,
                 "Steve Jobs",
                 new Date(1955, 2, 24),
                 "999.888.777-55",
