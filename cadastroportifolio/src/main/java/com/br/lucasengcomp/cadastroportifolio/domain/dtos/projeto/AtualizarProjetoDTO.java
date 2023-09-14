@@ -3,6 +3,7 @@ package com.br.lucasengcomp.cadastroportifolio.domain.dtos.projeto;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.Pessoa;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AtualizarProjetoDTO implements Serializable {

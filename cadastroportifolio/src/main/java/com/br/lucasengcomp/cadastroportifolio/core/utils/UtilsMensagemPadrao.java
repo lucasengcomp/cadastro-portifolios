@@ -8,6 +8,7 @@ public class UtilsMensagemPadrao {
             "O gerente informado é inexistente ou não está habilitado para esse projeto";
     public static final String ID_NAO_ENCONTRADO = "ID não encontrado: ";
     public static final String EXCLUIDO_COM_SUCESSO = "Registro excluído com sucesso ";
+    public static final String ERRO_DELETAR_DADO = "Projeto não pode ser excluído ";
 
     protected UtilsMensagemPadrao() { }
 }
