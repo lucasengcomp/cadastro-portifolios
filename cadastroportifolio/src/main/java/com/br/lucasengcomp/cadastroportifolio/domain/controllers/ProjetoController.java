@@ -41,4 +41,10 @@ public class ProjetoController {
         EntidadeProjetoDTO registroAtualizado = service.atualizarPorId(id, dto);
         return ResponseEntity.ok().body(registroAtualizado);
     }
+
+    @DeleteMapping(value = "/deletar/{id}")
+    public ResponseEntity<Void> deletePorId(@PathVariable Long id) {
+        service.deletarPorId(id);
+        return ResponseEntity.noContent().build();
+    }
 }

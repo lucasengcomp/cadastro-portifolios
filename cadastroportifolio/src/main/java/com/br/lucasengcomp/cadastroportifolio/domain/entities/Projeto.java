@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -42,6 +43,7 @@ public class Projeto implements Serializable {
     private String descricao;
 
     @Column(length = 45)
+    @Enumerated(EnumType.ORDINAL)
     private Status status;
 
     private BigDecimal orcamento;
@@ -54,4 +56,7 @@ public class Projeto implements Serializable {
             referencedColumnName = "id",
             nullable = false)
     private Pessoa gerente;
+
+    @OneToMany(orphanRemoval = true, mappedBy = "projeto", fetch = FetchType.EAGER)
+    private List<Membro> membros;
 }

@@ -2,6 +2,7 @@ package com.br.lucasengcomp.cadastroportifolio.domain.service.impl;
 
 
 import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ConstraintViolationExceptionDatabase;
+import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.DeleteException;
 import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ResourceNotFoundException;
 import com.br.lucasengcomp.cadastroportifolio.core.mappers.ProjetoMapper;
 import com.br.lucasengcomp.cadastroportifolio.domain.dtos.projeto.AtualizarProjetoDTO;
@@ -68,6 +69,14 @@ public class ProjetoServiceImpl implements ProjetoServiceIT {
         }
     }
 
+    @Override
+    public void deletarPorId(Long id) {
+        var projetoEncontrado = buscaProjetoPorId(id);
+        if (projetoEncontrado.getStatus().isAtivo())
+            throw new DeleteException(ERRO_DELETAR_DADO);
+
+        repository.delete(projetoEncontrado);
+    }
 
     private Projeto buscaProjetoPorId(Long id) {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(ID_NAO_ENCONTRADO + id));

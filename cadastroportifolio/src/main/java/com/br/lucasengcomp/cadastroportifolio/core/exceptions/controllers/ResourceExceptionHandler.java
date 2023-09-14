@@ -2,6 +2,7 @@ package com.br.lucasengcomp.cadastroportifolio.core.exceptions.controllers;
 
 
 import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ConstraintViolationExceptionDatabase;
+import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.DeleteException;
 import com.br.lucasengcomp.cadastroportifolio.core.exceptions.services.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 
-import static com.br.lucasengcomp.cadastroportifolio.core.utils.UtilsMensagemPadrao.EXCECAO_DE_BANCO_DE_DADOS_VIOLATION;
-import static com.br.lucasengcomp.cadastroportifolio.core.utils.UtilsMensagemPadrao.RECURSO_NAO_ENCONTRADO;
+import static com.br.lucasengcomp.cadastroportifolio.core.utils.UtilsMensagemPadrao.*;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -31,6 +31,14 @@ public class ResourceExceptionHandler {
         StandardError error = new StandardError();
         HttpStatus status = mensagemErroHttp(request, error, HttpStatus.INTERNAL_SERVER_ERROR,
                 EXCECAO_DE_BANCO_DE_DADOS_VIOLATION, e.getMessage());
+        return ResponseEntity.status(status).body(error);
+    }
+
+    @ExceptionHandler(DeleteException.class)
+    public ResponseEntity<StandardError> deleteException(DeleteException e, HttpServletRequest request) {
+        StandardError error = new StandardError();
+        HttpStatus status = mensagemErroHttp(request, error, HttpStatus.BAD_REQUEST,
+                ERRO_DELETAR_DADO, e.getMessage());
         return ResponseEntity.status(status).body(error);
     }
 

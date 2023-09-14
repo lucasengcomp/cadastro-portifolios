@@ -11,4 +11,6 @@ public interface ProjetoServiceIT {
     EntidadeProjetoDTO cadastrar(InserirProjetoDTO dto);
 
     EntidadeProjetoDTO atualizarPorId(Long id, AtualizarProjetoDTO dto);
+
+    void deletarPorId(Long id);
 }
