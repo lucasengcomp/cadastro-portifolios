@@ -2,7 +2,6 @@ package com.br.lucasengcomp.cadastroportifolio.domain.dtos.projeto;
 
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.Pessoa;
 import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Risco;
-import com.br.lucasengcomp.cadastroportifolio.domain.entities.enums.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -22,11 +21,11 @@ public class InserirProjetoDTO implements Serializable {
 
     private String nome;
 
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
 
-    private Date dataPrevisaoFim;
+    private LocalDateTime dataPrevisaoFim;
 
-    private Date dataFim;
+    private LocalDateTime dataFim;
 
     private String descricao;
 

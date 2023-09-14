@@ -1,13 +1,10 @@
 package com.br.lucasengcomp.cadastroportifolio.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -27,7 +24,7 @@ public class Pessoa implements Serializable {
     private String nome;
 
     @Column(name = "datanascimento")
-    private Date dataNascimento;
+    private LocalDateTime dataNascimento;
 
     @Column(length = 14)
     private String cpf;

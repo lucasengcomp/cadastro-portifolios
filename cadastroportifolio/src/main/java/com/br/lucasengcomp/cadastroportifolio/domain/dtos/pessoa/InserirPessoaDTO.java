@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -13,11 +13,9 @@ import java.util.Date;
 @Builder
 public class InserirPessoaDTO {
 
-    private Long id;
-
     private String nome;
 
-    private Date dataNascimento;
+    private LocalDateTime dataNascimento;
 
     private String cpf;
 

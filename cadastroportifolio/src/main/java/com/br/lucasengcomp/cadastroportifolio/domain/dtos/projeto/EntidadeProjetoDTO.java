@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -23,11 +23,11 @@ public class EntidadeProjetoDTO implements Serializable {
 
     private String nome;
 
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
 
-    private Date dataPrevisaoFim;
+    private LocalDateTime dataPrevisaoFim;
 
-    private Date dataFim;
+    private LocalDateTime dataFim;
 
     private String descricao;
 

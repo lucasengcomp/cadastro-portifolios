@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -31,13 +31,13 @@ public class Projeto implements Serializable {
     private String nome;
 
     @Column(name = "data_inicio")
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
 
     @Column(name = "data_previsao_fim")
-    private Date dataPrevisaoFim;
+    private LocalDateTime dataPrevisaoFim;
 
     @Column(name = "data_fim")
-    private Date dataFim;
+    private LocalDateTime dataFim;
 
     @Column(length = 5000)
     private String descricao;

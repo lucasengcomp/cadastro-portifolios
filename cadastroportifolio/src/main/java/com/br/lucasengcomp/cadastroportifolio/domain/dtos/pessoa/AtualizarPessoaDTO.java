@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +13,7 @@ public class AtualizarPessoaDTO {
 
     private String nome;
 
-    private Date dataNascimento;
+    private LocalDateTime dataNascimento;
 
     private String cpf;
 

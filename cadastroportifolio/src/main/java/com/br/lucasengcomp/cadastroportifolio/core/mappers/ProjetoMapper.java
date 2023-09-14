@@ -23,7 +23,7 @@ public interface ProjetoMapper {
     EntidadeProjetoDTO toEntidadeDTO(Projeto entidade);
 
     void toAtualizarDTOToEntity(AtualizarProjetoDTO dto, @MappingTarget Projeto projeto);
-
+    Projeto toAtualizarDTOToEntity(AtualizarProjetoDTO dto);
 
     @Named("toStatus")
     default Status toStatus(int statusId) {
