@@ -8,7 +8,7 @@
 
 1. CRUD de Projetos com algumas especificidades requeridas
 2. Alguns testes unitários com JUNIT5
-4. Swagger API REST.
+4. Swagger API REST
 
 ---
 
@@ -32,6 +32,15 @@
 ![Diagrama](cadastroportifolio/docs/UML.png "Diagrama")
 
 ---
+
+### Arquivo para importação de endpoints do Postman, faça a importação do arquivo:
+
+[![Download arquivo coleções endpoints](https://img.shields.io/badge/Download-Arquivo-brightgreen)](cadastroportifolio/docs/Cadastro-Portifolio.postman_collection.json)
+
+### Com a aplicação startada acessar a URL do Swagger para manipulação de endpoints
+```
+http://localhost:8080/swagger-ui.html#/
+```
 
 ## Endpoits de consultas de sistemas cadastrados
 
