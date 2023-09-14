@@ -24,6 +24,7 @@
 
 1. Java na versão 12
 2. Banco de dados Postgresql (foi usado a versão 12)
+3. Criar uma base de dados com o nome `cadastro_projetos`
 
 ---
 
